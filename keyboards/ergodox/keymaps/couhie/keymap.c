@@ -5,6 +5,7 @@
 
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
+#define MDIA 2 // media keys
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -25,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| ~L1  |           | ~L1  |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | Hyper|  Esc | Ctrl | Alt  | LGui |                                       | RGui |   [  |   ]  |  Grv |   L1   |
+ *   | ~L2  |  Esc | Ctrl | Alt  | LGui |                                       | RGui |   [  |   ]  |  Grv |   L1 |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | Del  | Home |       | PgUp | BkSp   |
@@ -39,11 +40,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_EQL,        KC_1,         KC_2,         KC_3,    KC_4,    KC_5,    KC_LEFT,
-        KC_TAB,        KC_Q,         KC_W,         KC_E,    KC_R,    KC_T,    KC_SPC,
-        CTL_T(KC_NO),  KC_A,         KC_S,         KC_D,    KC_F,    KC_G,
-        KC_LSFT,       KC_Z,         KC_X,         KC_C,    KC_V,    KC_B,    MO(SYMB),
-        ALL_T(KC_NO),  KC_ESC,       CTL_T(KC_NO), KC_LALT, KC_LGUI,
+        KC_EQL,       KC_1,         KC_2,         KC_3,    KC_4,    KC_5,    KC_LEFT,
+        KC_TAB,       KC_Q,         KC_W,         KC_E,    KC_R,    KC_T,    KC_SPC,
+        CTL_T(KC_NO), KC_A,         KC_S,         KC_D,    KC_F,    KC_G,
+        KC_LSFT,      KC_Z,         KC_X,         KC_C,    KC_V,    KC_B,    MO(SYMB),
+        MO(MDIA),     KC_ESC,       CTL_T(KC_NO), KC_LALT, KC_LGUI,
                                                                      KC_DELT, KC_HOME,
                                                                               KC_END,
                                                        CTL_T(KC_NO), KC_SPC,  KC_LGUI,
@@ -71,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   | EPRM  |      |      |      |      |                                       |   0  |    . |   =  |   +  |      |
  *   `-----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        |      | RESET|       |      |      |
+ *                                        |      |      |       |      |      |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |      |
  *                                 |      |      |------|       |------|      |      |
@@ -86,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        EPRM,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                                                    KC_TRNS, RESET,
+                                                    KC_TRNS, KC_TRNS,
                                                              KC_TRNS,
                                            KC_TRNS, KC_TRNS, KC_TRNS,
        // right hand
@@ -95,6 +96,47 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_TRNS, KC_4,    KC_5,    KC_6,    KC_ASTR, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_1,    KC_2,    KC_3,    KC_MINS, KC_TRNS,
                          KC_0,    KC_DOT,  KC_EQL,  KC_PLUS, KC_TRNS,
+       KC_TRNS, KC_TRNS,
+       KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS
+),
+/* Keymap 2: Media and mouse keys
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |      |      |      |      |      | RESET|           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |------|           |------| Left | Down |  Up  | Right|      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |      |      |      |      |      |                                       |VolUp |VolDn | Mute |      |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+// MEDIA AND MOUSE
+[MDIA] = KEYMAP(
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RESET,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                                    KC_TRNS, KC_TRNS,
+                                                             KC_TRNS,
+                                           KC_TRNS, KC_TRNS, KC_TRNS,
+    // right hand
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                 KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_TRNS, KC_TRNS,
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                          KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
