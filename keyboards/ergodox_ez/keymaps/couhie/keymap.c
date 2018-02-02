@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |  =   |           |  -   |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |Ctrl/Esc|   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '"   |
- * |--------+------+------+------+------+------| Space|           | Space|------+------+------+------+------+--------|
+ * |--------+------+------+------+------+------| Tab  |           | Space|------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   | ~L2  |  Esc | Ctrl | Alt  | LGui |                                       | RGui |  Alt |   [  |   ]  |   L1 |
@@ -29,8 +29,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | Del  | Home |       | PgUp | BkSp   |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | End  |       | PgDn |        |      |
- *                                 | Ctrl | Tab  |------|       |------| RGui   |Enter |
- *                                 |      |      | LGui |       | Space|        |      |
+ *                                 | Ctrl |Space |------|       |------| RGui   |Enter |
+ *                                 |      |      | LGui |       | Tab  |        |      |
  *                                 `--------------------'       `----------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -40,11 +40,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,         KC_1,   KC_2,    KC_3,    KC_4,    KC_5,    KC_ESC,
         KC_TAB,         KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,    KC_EQL,
         RCTL_T(KC_ESC), KC_A,   KC_S,    KC_D,    KC_F,    KC_G,
-        KC_LSFT,        KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_SPC,
+        KC_LSFT,        KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_TAB,
         MO(MDIA),       KC_ESC, KC_RCTL, KC_LALT, KC_LGUI,
                                                            KC_DELT, KC_HOME,
                                                                     KC_END,
-                                                  KC_CAPS, KC_TAB,  KC_LGUI, // Karabiner-Elements converts KC_CAPS to KC_LCTL
+                                                  KC_CAPS, KC_SPC,  KC_LGUI, // Karabiner-Elements converts KC_CAPS to KC_LCTL
         // right hand
         KC_ENT,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
         KC_MINS, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           KC_RGUI, KC_RALT, KC_LBRC, KC_RBRC, TG(SYMB),
         KC_PGUP, KC_BSPC,
         KC_PGDN,
-        KC_SPC,  KC_RGUI, KC_ENT
+        KC_TAB,  KC_RGUI, KC_ENT
     ),
 /* Keymap 1: Symbol Layer
  *
