@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         MO(MDIA),       KC_ESC, KC_RCTL, KC_LALT, KC_LGUI,
                                                            KC_DELT, KC_HOME,
                                                                     KC_END,
-                                                  KC_CAPS, KC_SPC,  KC_LGUI, // Karabiner-Elements converts KC_CAPS to KC_LCTL
+                                                  KC_LCTL, KC_SPC,  KC_LGUI,
         // right hand
         KC_ENT,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
         KC_MINS, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
