@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        | Del  | Home |       | PgUp | BkSp   |
  *                                 ,------|------|------|       |------+--------+------.
  *                                 |      |      | End  |       | PgDn |        |      |
- *                                 | Ctrl |Space |------|       |------| RGui   |Enter |
+ *                                 | Ctrl |Space |------|       |------| LGui   |Enter |
  *                                 |      |      | LGui |       | Tab  |        |      |
  *                                 `--------------------'       `----------------------'
  */
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           KC_RGUI, KC_RALT, KC_LBRC, KC_RBRC, TG(SYMB),
         KC_PGUP, KC_BSPC,
         KC_PGDN,
-        KC_TAB,  KC_RGUI, KC_ENT
+        KC_TAB,  KC_LGUI, KC_ENT
     ),
 /* Keymap 1: Symbol Layer
  *
