@@ -15,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Grv    |   1  |   2  |   3  |   4  |   5  | Esc  |           | Enter|   6  |   7  |   8  |   9  |   0  |   -    |
+ * | Grv    |   1  |   2  |   3  |   4  |   5  | Esc  |           | Enter|   6  |   7  |   8  |   9  |   0  |CapsLock|
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |  =   |           |  -   |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                     KC_END,
                                                   KC_LCTL, KC_SPC,  KC_LGUI,
         // right hand
-        KC_ENT,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
+        KC_ENT,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_CAPSLOCK,
         KC_MINS, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
                  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
         KC_SPC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
@@ -185,5 +185,4 @@ void matrix_scan_user(void) {
       // none
       break;
   }
-
 };
