@@ -30,7 +30,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "matrix.h"
 #include "split_util.h"
 #include "pro_micro.h"
-#include "config.h"
 
 #ifdef USE_MATRIX_I2C
 #  include "i2c.h"
@@ -62,15 +61,6 @@ static void unselect_rows(void);
 static void select_row(uint8_t row);
 static uint8_t matrix_master_scan(void);
 
-__attribute__ ((weak))
-void matrix_init_quantum(void) {
-    matrix_init_kb();
-}
-
-__attribute__ ((weak))
-void matrix_scan_quantum(void) {
-    matrix_scan_kb();
-}
 
 __attribute__ ((weak))
 void matrix_init_kb(void) {

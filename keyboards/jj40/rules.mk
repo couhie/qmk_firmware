@@ -42,7 +42,6 @@ BACKLIGHT_CUSTOM_DRIVER = yes
 
 RGBLIGHT_ENABLE = yes
 RGBLIGHT_CUSTOM_DRIVER = yes
-# DISABLE_WS2812 = no
 
 KEY_LOCK_ENABLE = yes
 
@@ -57,3 +56,5 @@ SRC = matrix.c i2c.c backlight.c
 
 # programming options
 PROGRAM_CMD = ./util/atmega32a_program.py $(TARGET).hex
+
+LAYOUTS = ortho_4x12 planck_mit planck_grid
